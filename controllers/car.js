@@ -33,5 +33,21 @@ module.exports = {
         response: `Voiture ${car.name} supprimée avec succès.`
       });
     });
+  },
+
+  update(req, res) {
+    const id = req.body._id;
+
+    if (id) {
+      CarModel.findByIdAndUpdate(id, req.body).then((car) => {
+        res.send({
+          response: `Voiture ${car.name} mise à jour avec succès.`
+        });
+      })
+    } else {
+      res.send({
+        response: "Un ID est nécessaire."
+      });
+    }
   }
 }

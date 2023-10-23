@@ -20,4 +20,8 @@ module.exports = server => {
   server.delete("/cars/:id", (req, res) => {
     CarController.delete(req, res);
   });
+
+  server.put("/cars", (req, res) => {
+    CarController.update(req, res);
+  })
 }
