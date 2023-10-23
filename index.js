@@ -1,6 +1,12 @@
 const express = require("express");
 const server = express();
 const mongoose = require("mongoose");
+const cors = require("cors");
+server.use(cors({
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
+  optionsSuccessStatus: 200
+}));
 
 const routes = require("./routes");
 
